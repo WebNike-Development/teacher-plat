@@ -82,7 +82,7 @@ def register_view():
 			cursor.execute(my_query, data)
 			mysql.connection.commit()
 			
-			# mail_sender(email, random_str, 'email_verification')
+			mail_sender(email, random_str, 'email_verification')
 			
 			my_query = """SELECT id_pk, user_name, email FROM login WHERE email=%s"""
 			data = (email,)
