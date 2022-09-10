@@ -122,6 +122,7 @@ def resend_email_view():
 # ================================ Email verification and link =====================================
 @app.route('/email_verification', methods=['GET'])
 def email_verification_view():
+	print(request.args)
 	req_string = request.args.get('q')
 	if req_string:
 		cursor = mysql.connection.cursor()
