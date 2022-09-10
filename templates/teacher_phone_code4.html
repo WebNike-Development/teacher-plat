@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+                
+				<div class="welcome-text">
+                    
+					<h3 style="font-size: 26px;">Enter Your 6 Digits OTP Code ****</h3>
+					<span>{{session['contact_no']}} &nbsp; <a href="student_phone_verify.php" title="I Have Entered Wrong Phone Number" data-tippy-placement="right">Edit Phone Number</a> </span> 
+				</div>
+
+				<!-- Account Type -->
+			
+					
+				<!-- Form -->
+				<form method="POST" id="register-account-form" action="{{url_for('teacher_phone_verify_view')}}">
+				
+					
+					<div class="social-login-separator"><span>or</span></div>
+					
+					<div class="input-with-icon-left" title="Check Your Entered Message Inbox For Confirmation Code, Or If You Have Not Receive Confirmation Code Please Wait 10 Mniutes Or Try Again" data-tippy-placement="right">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="password-register" id="password-register" placeholder="Enter 6 Digit Confirmation Code" maxlength="6"/>
+					</div>
+
+					
+
+
+				<a href="#" onclick="nmnotverify()">Not Verified</a>
+						<button class="button full-width button-sliding-icon ripple-effect margin-top-10" >Verify<i class="icon-material-outline-arrow-right-alt"></i></button>
+					</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+
+
+<script>
+    function nmverify() {
+        Swal.fire({
+            title: 'Phone Number Verified',
+            text: "Your Phone Number : {{session['contact_no']}} is Successfully Verified",
+            icon: 'success',
+            confirmButtonText: 'Proceed To Next'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                  window.location.href = "{{ url_for('teacher_subject_view')}}",
+                )
+            }
+        })
+      }
+    </script>
+
+<script>
+function nmnotverify(){
+
+
+Swal.fire({
+  title: 'Incorrect OTP',
+  text: "Please Enter Valid OTP Code For Verify Your Phone Number",
+  icon: 'warning',
+  showCancelButton: true,
+  confirmButtonColor: '#3085d6',
+  cancelButtonColor: '#d33',
+  confirmButtonText: 'Send Again'
+}).then((result) => {
+  if (result.isConfirmed) {
+    Swal.fire(
+      'OTP Code Send Again',
+      'OTP Code Has Been Send Again Of Your Provided Phone Number',
+      'success'
+    )
+  }
+})
+}
+
+
+
+</script>
+
+{% if mxg=='trigger1' %}
+<script>
+  nmverify()
+</script>
+{% endif %}
+
+{% endblock %}

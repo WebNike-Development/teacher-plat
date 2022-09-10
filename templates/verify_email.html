@@ -1,0 +1,96 @@
+{% extends 'Base.html' %}
+
+{% block body %}
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="order-confirmation-page">
+                <img class="eml" src="{{ url_for('static', filename='images/email_verify.png' )}}">
+                <h2 class="margin-top-30">Please Verify Your Email</h2>
+                <p>We've sent an email to <strong>{{ session["email"] }} </strong> <br>Check Your Email inbox Or Spam to Verify Your Email Address</p>
+                <a href="#!" class="button ripple-effect-dark button-sliding-icon margin-top-30 show-btn">I Have Not Receive Email <i class="icon-material-outline-arrow-right-alt"></i></a>
+                <div class="box">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-6 offset-xl-3 mgn">
+
+                                <div class="login-register-page">
+                                    <!-- Welcome Text -->
+
+                                    <div class="welcome-text">
+
+                                        <h3 style="font-size: 26px;">Have You Entered Wrong Email ?</h3>
+                                    </div>
+
+                                    <!-- Account Type -->
+
+
+                                    <!-- Form -->
+                                    <form method="post" id="register-account-form" action="{{ url_for('resend_email_view') }}">
+
+
+                                        <div class="input-with-icon-left" title="Your Email" data-tippy-placement="right">
+                                            <i class="icon-material-outline-lock"></i>
+                                            <input type="email" class="input-text with-border" name="email" id="password-register" placeholder="Johnelie@gmail.com" />
+                                        </div>
+
+
+
+
+
+                                        <button type="submit" class="button ripple-effect-dark button-sliding-icon margin-top-30 hide-btn">Send Again <i class="icon-material-outline-arrow-right-alt"></i></button>
+                                    </form>
+`
+                                    <ul class="lty">
+                                        <li>
+                                            30% chance it's in spam folder. Please check your spam mail. If you find it in spam, please mark it as "Not spam" so that future mails will reach right in your inbox
+                                        </li>
+                                        <li>
+                                            25% chance - If you are using gmail, it might be in a different tab like "Promotions" or "Social". If it's in the wrong tab in email, move it to "Primary" tab. That would ensure you are not missing on important notifications from us.
+                                        </li>
+                                        <li>
+                                            5% chance it's been blocked by email blockers (like boxbe) or you have exceeded your storage space for email usage. Please also check settings of your email blockers in case that is what is stopping our mails from reaching your inbox.
+                                        </li>
+
+                                    </ul>
+
+                                    <!-- Button -->
+
+                                    <!-- Social Login -->
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Container / End -->
+
+<script>
+    $(document).ready(function() {
+        $(".hide-btn").click(function() {
+            $(".box").hide();
+        });
+        $(".show-btn").click(function() {
+            $(".box").show();
+        });
+    });
+</script>
+
+<!-- Footer
+================================================== -->
+{% endblock %}
+

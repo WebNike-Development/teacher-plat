@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+                
+				<div class="welcome-text">
+                    
+					<h3 style="font-size: 26px;">Enter Your OTP Code ****</h3>
+					<span>Jennifersimard@gmail.com &nbsp; <a href="confirmation_email.php" title="I Have Entered Wrong Email" data-tippy-placement="right">Edit Email</a> </span> 
+				</div>
+
+				<!-- Account Type -->
+			
+					
+				<!-- Form -->
+				<form method="post" id="register-account-form" action="{{ url_for('email_verification_view') }}">
+				
+					
+					<div class="social-login-separator"><span>or</span></div>
+					
+					<div class="input-with-icon-left" title="Check Your Entered Email For Confirmation Code, Or If You Have Not Receive Confirmation Code Please Check Your Spam Or Junk Folder" data-tippy-placement="right">
+						<i class="icon-material-outline-lock"></i>
+						<input type="password" class="input-text with-border" name="otp" id="password-register" placeholder="Enter 6 Digit Confirmation Code "/>
+					</div>
+
+					
+
+
+				
+						<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" >Verify<i class="icon-material-outline-arrow-right-alt"></i></button>
+					</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+{% endblock %}

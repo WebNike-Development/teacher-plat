@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h1>Basic Details</h1>
+
+				</div>
+
+				<!-- Account Type -->
+
+
+				<!-- Form -->
+				<form method="POST" id="register-account-form" action="{{ url_for('teacher_detail_view') }}">
+
+
+
+					<div class="col-xl-12">
+						<div class="submit-field">
+							<h5>Speciality, Strength or Current Role</h5>
+							<input name="speciality" type="text" class="with-border" />
+						</div>
+						<div class="submit-field">
+							<h5>Gender</h5>
+							<select name="gender" class="selectpicker with-border" data-size="8" title="Select Gender">
+								<option>Male</option>
+								<option>Female</option>
+								<option>Transgender</option>
+
+							</select>
+						</div>
+						<div class="submit-field">
+							<h5>Date Of Birth</h5>
+							<input name="dob" type="date" class="with-border" placeholder="e.g. build me a website">
+						</div>
+
+
+
+
+					</div>
+
+					<button class="button full-width button-sliding-icon ripple-effect margin-top-10"
+						type="submit">Submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+				</form>
+
+				<!-- Button -->
+
+				<!-- Social Login -->
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+    function alret() {
+        Swal.fire({
+            icon: 'error',
+            // title: 'Please select or fill all field',
+			text: 'Please select or fill all field',
+            // text: 'Please Select Location Of Your Area/Sector/Town',
+            // footer: 'Get Help ? <a href="#">&nbsp;&nbsp;Contact Admin</a>'
+        })
+    }
+</script>
+
+{% if msg %}
+<script>
+	alret()
+</script>
+{% endif %}
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+{% endblock %}

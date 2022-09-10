@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+				
+				</div>
+
+				<!-- Account Type -->
+		
+					
+				<!-- Form -->
+				<form method="post" id="register-account-form" action="{{ url_for('teacher_type_view')}}">
+				
+					
+					
+				<div class="col-xl-12">
+					<div class="submit-field">
+						<h5>I am</h5>
+						<select name="degreeTypeId" onchange="displayDivDemo('hidetutor', this)" class="" id="degreeTypeId">
+							<option selected hidden disabled > Please Select Your Role Type </option>
+							<option class="showt" value="Individual Teacher">Individual Teacher</option>
+							<option class="hidet" value="Tutor Company">Tutor Company</option>
+						</select>
+					</div>
+					<div id="hidetutor">
+
+						<div class="submit-field">
+							<h5>Full Name</h5>
+							<input type="text" name="fullname" id="fulname" class="with-border">
+						</div>
+
+						<div class="submit-field">
+							<h5>Company Name</h5>
+							<input id="companyname" name="companyname" type="text" class="with-border">
+						</div>
+
+						<div class="submit-field">
+							<h5>Role / Job Title</h5>
+							<input name="role/job" type="text" class="with-border">
+						</div>
+						<div class="submit-field">
+							<h5>Display Name </h5>
+							<select name="dis_name">
+								<option value=""> Please Select Your Display Name </option>
+
+								<option id="printflnm" value="Name">Name </option>
+								<option id="printcom" value="Company Name ">Company Name </option>
+								<option>Both </option>
+
+
+
+							</select>
+						</div>
+					</div>
+					</div>
+								
+						<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit" >Submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+					</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+<script>
+    function alret() {
+        Swal.fire({
+            icon: 'error',
+            // title: 'Please select or fill all field',
+			text: 'Please select or fill all field',
+            // text: 'Please Select Location Of Your Area/Sector/Town',
+            // footer: 'Get Help ? <a href="#">&nbsp;&nbsp;Contact Admin</a>'
+        })
+    }
+</script>
+
+<script>
+	function displayDivDemo(id, elementValue) {
+		document.getElementById(id).style.display = elementValue.options[elementValue.options.selectedIndex].className == 'hidet' ? 'block' : 'none';
+	}
+</script>
+<script>
+	document.querySelector('#fulname').onkeyup = (event) => {
+		let name = event.target.value;
+		document.querySelector('#printflnm').innerHTML = `Name: ${name}`;
+	}
+</script>
+
+<script>
+	document.querySelector('#companyname').onkeyup = (event) => {
+		let name = event.target.value;
+		document.querySelector('#printcom').innerHTML = `Company Name: ${name}`;
+	}
+</script>
+
+<script>
+	document.querySelector('#companyname').onkeyup = (event) => {
+		let name = event.target.value;
+		document.querySelector('#printcom').innerHTML = `Company Name: ${name}`;
+	}
+</script>
+
+{% if msg %}
+<script>
+	alret()
+</script>
+{% endif %}
+
+{% endblock %}

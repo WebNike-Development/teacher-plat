@@ -1,0 +1,128 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+
+                </div>
+
+                <!-- Account Type -->
+
+
+                <!-- Form -->
+                <form method="POST" id="register-account-form" action="{{url_for('student_role_view')}}">
+
+
+
+                    <div class="col-xl-12">
+                        <div class="submit-field">
+                            <h5>I am</h5>
+                            <select name="role" onchange="displayDivDemo('hidetutor', this)" class="" id="degreeTypeId">
+                                <option selected hidden disabled value="0"> Please Select Your Role Type </option>
+
+                                <option class="showt" value="Student">Student</option>
+                                <option class="showt" value="Parent/Guardian">Parent/Guardian</option>
+                                <option class="showt" value="Professional">Professional</option>
+                                <option class="hidet" value="Company/Mediator">Company/Mediator</option>
+
+
+                            </select>
+
+                        </div>
+
+                        <div id="hidetutor">
+
+                            <div class="submit-field">
+                                <h5>Full Name</h5>
+                                <input name="fullname" type="text" id="fulname" class="with-border">
+                            </div>
+
+                            <div class="submit-field">
+                                <h5>Company Name</h5>
+                                <input name="company_name" id="companyname" type="text" class="with-border">
+                            </div>
+
+                            <div class="submit-field">
+                                <h5>Display Name </h5>
+                                <select name="display_name">
+                                    <option selected hidden disabled> Please Select Your Display Name </option>
+
+                                    <option id="printflnm" value="Name">Name </option>
+                                    <option id="printcom" value="Company Name">Company Name </option>
+                                    <option value="Both">Both </option>
+
+
+
+                                </select>
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+                    </div>
+
+                    <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+                </form>
+
+                <!-- Button -->
+
+                <!-- Social Login -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+
+
+<script>
+    function displayDivDemo(id, elementValue) {
+        document.getElementById(id).style.display = elementValue.options[elementValue.options.selectedIndex].className == 'hidet' ? 'block' : 'none';
+    }
+</script>
+
+
+<script>
+    document.querySelector('#fulname').onkeyup = (event) => {
+        let name = event.target.value;
+        document.querySelector('#printflnm').innerHTML = `Name: ${name}`;
+    }
+</script>
+
+<script>
+    document.querySelector('#companyname').onkeyup = (event) => {
+        let name = event.target.value;
+        document.querySelector('#printcom').innerHTML = `Company Name: ${name}`;
+    }
+</script>
+
+<script>
+    document.querySelector('#companyname').onkeyup = (event) => {
+        let name = event.target.value;
+        document.querySelector('#printcom').innerHTML = `Company Name: ${name}`;
+    }
+</script>
+
+{% endblock %}

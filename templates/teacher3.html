@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+
+                <div class="welcome-text">
+                    <h1>Address(Public Visible)</h1>
+
+                </div>
+                <div class="brdr">
+                    <ul>
+                        <li>
+                            This address is publicly visible. Please give your local area/society so students know your approximate location. 
+                        </li>
+                        <li class="redish">
+                        For your safety, do not give the complete address. 
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Account Type -->
+
+
+                <!-- Form -->
+                <form method="POST" id="register-account-form pdtp" action="{{ url_for('teacher_address_view') }}">
+
+
+
+                    <div class="col-xl-12">
+                        <div class="submit-field" title="Please Select Your Location From The Suggested Options" data-tippy-placement="right">
+                            <h5>Location</h5>
+                            <input type="text" name="location" class="with-border inputClass" id="textfield1"  placeholder="Please Select Your Location"/> 
+                            <span class="blueish" id="noOfPagesDisplay"></span> <button  type="button" onclick="ClearFields();">
+                            <img class="dil"  src="{{ url_for('static', filename = 'images/address_edit.svg') }}"></button>
+                        </div>
+                        <div class="box2">
+                        <div class="submit-field" title="Please Enter Your Postal Code Only If You Are Sure It Is Correct"  data-tippy-placement="right">
+                            <h5>Postal/Zip Code</h5>
+                            <input type="text" name="zip" class="with-border"/>
+                            <h6 class="hide-btn redish">I Dont Have Postal Code</h6>
+                            
+                        </div>
+                        </div>
+
+                        <a onclick="address()">Location Error</a>
+
+
+
+                    </div>
+
+                    <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+                </form>
+
+                <!-- Button -->
+
+                <!-- Social Login -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script> 
+function ClearFields() {
+
+     document.getElementById("textfield1").value = "";
+}
+</script>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+
+
+
+
+
+
+<script>
+    function alret() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Your Selected Location Not Found',
+            text: 'Please Select Location Of Your Area/Sector/Town',
+            // footer: 'Get Help ? <a href="#">&nbsp;&nbsp;Contact Admin</a>'
+        })
+    }
+</script>
+
+<script>
+    $(document).ready(function() {
+        $(".hide-btn").click(function() {
+            $(".box2").hide();
+        });
+       
+    });
+</script>
+
+<script>
+
+
+document.querySelector('.inputClass').onchange = (event) => {
+    document.querySelector('#noOfPagesDisplay').textContent = event.target.value;
+}
+
+document.querySelector('.dil').onclick = ()=>{
+    document.querySelector('#noOfPagesDisplay').textContent = "";
+}
+
+</script>
+
+
+{% if msg %}
+<script>
+	alret()
+</script>
+{% endif %}
+
+{% endblock %}

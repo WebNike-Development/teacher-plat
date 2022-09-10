@@ -1,0 +1,321 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h1>Phone Number</h1>
+                </div>
+                <!-- Account Type -->
+                <!-- Form -->
+                <form method="POST" id="register-account-form pdtp" action="{{ url_for('teacher_phone_view') }}">
+                    <section class="form-inline sky-form page-search-form margin-bottom-10">
+                        <style>
+                            #countryId {
+                                width: 150px !important;
+                            }
+                        </style>
+                        <div class="submit-field">
+                            <span>
+                                <div class="submit-field" title="Please Select Your Country Code i.e &nbsp;&nbsp; +92 Pakistan"  data-tippy-placement="right">
+                                    <h5>Select Your Country Code Of Phone Number</h5>
+                                    <select name="c-code" class="selectpicker with-border" data-size="8" title="Select Country Code">
+                                        <option value="" selected disabled>Select Your Country Code </option>
+                                        <option>+93 Afghanistan </option>
+                                        <option>+358 Åland Islands </option>
+                                        <option>+355 Albania </option>
+                                        <option>+213 Algeria </option>
+                                        <option>+1684 American Samoa </option>
+                                        <option>+376 Andorra </option>
+                                        <option>+244 Angola </option>
+                                        <option>+1264 Anguilla </option>
+                                        <option>+672 Antarctica </option>
+                                        <option>+1268 Antigua and Barbuda </option>
+                                        <option>+54 Argentina </option>
+                                        <option>+374 Armenia </option>
+                                        <option>+297 Aruba </option>
+                                        <option>+61 Australia </option>
+                                        <option>+43 Austria </option>
+                                        <option>+994 Azerbaijan </option>
+                                        <option>+973 Bahrain </option>
+                                        <option>+880 Bangladesh </option>
+                                        <option>+1246 Barbados </option>
+                                        <option>+375 Belarus </option>
+                                        <option>+32 Belgium </option>
+                                        <option>+501 Belize </option>
+                                        <option>+229 Benin </option>
+                                        <option>+1441 Bermuda </option>
+                                        <option>+975 Bhutan </option>
+                                        <option>+591 Bolivia </option>
+                                        <option>+387 Bosnia and Herzegovina </option>
+                                        <option>+267 Botswana </option>
+                                        <option>+55 Brazil </option>
+                                        <option >+246 British Indian Ocean Territory </option>
+                                        <option>+1284 British Virgin Islands </option>
+                                        <option>+673 Brunei Darussalam </option>
+                                        <option>+359 Bulgaria </option>
+                                        <option>+226 Burkina Faso </option>
+                                        <option>+257 Burundi </option>
+                                        <option>+855 Cambodia </option>
+                                        <option>+237 Cameroon </option>
+                                        <option>+1 Canada </option>
+                                        <option>+238 Cape Verde </option>
+                                        <option>+599 Caribbean Netherlands </option>
+                                        <option>+1345 Cayman Islands </option>
+                                        <option>+236 Central African Republic </option>
+                                        <option>+235 Chad </option>
+                                        <option>+44 Channel Islands </option>
+                                        <option>+56 Chile </option>
+                                        <option>+86 China </option>
+                                        <option>+61 Christmas Island </option>
+                                        <option>+57 Colombia </option>
+                                        <option>+269 Comoros </option>
+                                        <option>+243 Congo, Dem. Rep. </option>
+                                        <option>+242 Congo, Rep. </option>
+                                        <option>+506 Costa Rica </option>
+                                        <option>+225 Cote d'Ivoire </option>
+                                        <option>+385 Croatia </option>
+                                        <option>+53 Cuba </option>
+                                        <option>+5999 Curacao </option>
+                                        <option>+357 Cyprus </option>
+                                        <option>+420 Czech Republic </option>
+                                        <option>+45 Denmark </option>
+                                        <option>+253 Djibouti </option>
+                                        <option>+1767 Dominica </option>
+                                        <option>+1 Dominican Republic </option>
+                                        <option>+593 Ecuador </option>
+                                        <option>+20 Egypt </option>
+                                        <option>+503 El Salvador </option>
+                                        <option>+240 Equatorial Guinea </option>
+                                        <option>+291 Eritrea </option>
+                                        <option>+372 Estonia </option>
+                                        <option>+251 Ethiopia </option>
+                                        <option>+500 Falkland Islands (Islas Malvinas) </option>
+                                        <option>+298 Faroe Islands </option>
+                                        <option>+679 Fiji </option>
+                                        <option>+358 Finland </option>
+                                        <option>+33 France </option>
+                                        <option>+594 French Guiana </option>
+                                        <option>+689 French Polynesia </option>
+                                        <option>+241 Gabon </option>
+                                        <option>+995 Georgia </option>
+                                        <option>+49 Germany </option>
+                                        <option>+233 Ghana </option>
+                                        <option>+350 Gibraltar </option>
+                                        <option>+30 Greece </option>
+                                        <option>+299 Greenland </option>
+                                        <option>+1473 Grenada </option>
+                                        <option>+590 Guadeloupe </option>
+                                        <option>+1671 Guam </option>
+                                        <option>+502 Guatemala </option>
+                                        <option>+44 Guernsey </option>
+                                        <option>+224 Guinea </option>
+                                        <option>+245 Guinea-Bissau </option>
+                                        <option>+592 Guyana </option>
+                                        <option>+509 Haiti </option>
+                                        <option>+61 Heard Island and McDonald Islands </option>
+                                        <option>+504 Honduras </option>
+                                        <option>+852 Hong Kong </option>
+                                        <option>+36 Hungary </option>
+                                        <option>+354 Iceland </option>
+                                        <option>+91 India </option>
+                                        <option>+62 Indonesia </option>
+                                        <option>+98 Iran </option>
+                                        <option>+964 Iraq </option>
+                                        <option>+353 Ireland </option>
+                                        <option>+44 Isle of Man </option>
+                                        <option>+972 Israel </option>
+                                        <option>+39 Italy </option>
+                                        <option>+1876 Jamaica </option>
+                                        <option>+81 Japan </option>
+                                        <option>+44 Jersey </option>
+                                        <option>+962 Jordan </option>
+                                        <option>+7 Kazakhstan </option>
+                                        <option>+254 Kenya </option>
+                                        <option>+686 Kiribati </option>
+                                        <option>+383 Kosovo </option>
+                                        <option>+965 Kuwait </option>
+                                        <option>+996 Kyrgyz Republic </option>
+                                        <option>+856 Lao PDR </option>
+                                        <option>+371 Latvia </option>
+                                        <option>+961 Lebanon </option>
+                                        <option>+266 Lesotho </option>
+                                        <option>+231 Liberia </option>
+                                        <option>+218 Libya </option>
+                                        <option>+423 Liechtenstein </option>
+                                        <option>+370 Lithuania </option>
+                                        <option>+352 Luxembourg </option>
+                                        <option>+853 Macau </option>
+                                        <option>+389 Macedonia </option>
+                                        <option>+261 Madagascar </option>
+                                        <option>+265 Malawi </option>
+                                        <option>+60 Malaysia </option>
+                                        <option>+960 Maldives </option>
+                                        <option>+223 Mali </option>
+                                        <option>+356 Malta </option>
+                                        <option>+692 Marshall Islands </option>
+                                        <option>+596 Martinique </option>
+                                        <option>+222 Mauritania </option>
+                                        <option>+230 Mauritius </option>
+                                        <option>+262 Mayotte </option>
+                                        <option>+52 Mexico </option>
+                                        <option>+691 Micronesia </option>
+                                        <option>+373 Moldova </option>
+                                        <option>+377 Monaco </option>
+                                        <option>+976 Mongolia </option>
+                                        <option>+382 Montenegro </option>
+                                        <option>+1664 Montserrat </option>
+                                        <option>+212 Morocco </option>
+                                        <option>+258 Mozambique </option>
+                                        <option>+95 Myanmar </option>
+                                        <option>+264 Namibia </option>
+                                        <option>+674 Nauru </option>
+                                        <option>+977 Nepal </option>
+                                        <option>+31 Netherlands </option>
+                                        <option>+687 New Caledonia </option>
+                                        <option>+64 New Zealand </option>
+                                        <option>+505 Nicaragua </option>
+                                        <option>+227 Niger </option>
+                                        <option>+234 Nigeria </option>
+                                        <option>+850 North Korea </option>
+                                        <option>+1670 Northern Mariana Islands </option>
+                                        <option>+47 Norway </option>
+                                        <option>+968 Oman </option>
+                                        <option>+92 Pakistan</option>
+                                        <option>+680 Palau </option>
+                                        <option>+970 Palestine </option>
+                                        <option>+507 Panama </option>
+                                        <option>+675 Papua New Guinea </option>
+                                        <option>+595 Paraguay </option>
+                                        <option>+51 Peru </option>
+                                        <option>+63 Philippines </option>
+                                        <option>+48 Poland </option>
+                                        <option>+351 Portugal </option>
+                                        <option>+1 Puerto Rico </option>
+                                        <option>+974 Qatar </option>
+                                        <option>+262 Reunion </option>
+                                        <option>+40 Romania </option>
+                                        <option>+7 Russian Federation </option>
+                                        <option>+250 Rwanda </option>
+                                        <option>+590 Saint Barthélemy </option>
+                                        <option>+290 Saint Helena, Ascension and Tristan da Cunha </option>
+                                        <option>+508 Saint Pierre and Miquelon </option>
+                                        <option>+685 Samoa </option>
+                                        <option>+378 San Marino </option>
+                                        <option>+239 Sao Tome and Principe </option>
+                                        <option>+966 Saudi Arabia </option>
+                                        <option>+221 Senegal </option>
+                                        <option>+381 Serbia </option>
+                                        <option>+248 Seychelles </option>
+                                        <option>+232 Sierra Leone </option>
+                                        <option>+65 Singapore </option>
+                                        <option>+1721 Sint Maarten (Dutch part) </option>
+                                        <option>+421 Slovakia </option>
+                                        <option>+386 Slovenia </option>
+                                        <option>+677 Solomon Islands </option>
+                                        <option>+252 Somalia </option>
+                                        <option>+27 South Africa </option>
+                                        <option>+82 South Korea </option>
+                                        <option>+211 South Sudan </option>
+                                        <option>+34 Spain </option>
+                                        <option>+94 Sri Lanka </option>
+                                        <option>+1869 St. Kitts and Nevis </option>
+                                        <option>+1758 St. Lucia </option>
+                                        <option>+590 St. Martin (French part) </option>
+                                        <option>+1784 St. Vincent and the Grenadines </option>
+                                        <option>+249 Sudan </option>
+                                        <option>+597 Suriname </option>
+                                        <option>+47 Svalbard and Jan Mayen </option>
+                                        <option>+268 Swaziland </option>
+                                        <option>+46 Sweden </option>
+                                        <option>+41 Switzerland </option>
+                                        <option>+963 Syrian Arab Republic </option>
+                                        <option>+886 Taiwan </option>
+                                        <option>+992 Tajikistan </option>
+                                        <option>+255 Tanzania </option>
+                                        <option>+66 Thailand </option>
+                                        <option>+1242 The Bahamas </option>
+                                        <option>+220 The Gambia </option>
+                                        <option>+670 Timor-Leste </option>
+                                        <option>+228 Togo </option>
+                                        <option>+690 Tokelau </option>
+                                        <option>+676 Tonga </option>
+                                        <option>+1868 Trinidad and Tobago </option>
+                                        <option>+216 Tunisia </option>
+                                        <option>+90 Turkey </option>
+                                        <option>+993 Turkmenistan </option>
+                                        <option>+1649 Turks and Caicos Islands </option>
+                                        <option>+688 Tuvalu </option>
+                                        <option>+256 Uganda </option>
+                                        <option>+380 Ukraine </option>
+                                        <option>+971 United Arab Emirates </option>
+                                        <option>+44 United Kingdom </option>
+                                        <option>+1 United States </option>
+                                        <option>+1 United States Minor Outlying Islands </option>
+                                        <option>+598 Uruguay </option>
+                                        <option>+998 Uzbekistan </option>
+                                        <option>+678 Vanuatu </option>
+                                        <option>+379 Vatican City </option>
+                                        <option>+58 Venezuela </option>
+                                       <option>+84 Vietnam </option>
+                                        <option>+1284 Virgin Islands (U.S.) </option>
+                                        <option>+681 Wallis and Futuna </option>
+                                        <option>+212 Western Sahara </option>
+                                        <option>+967 Yemen, Rep. </option>
+                                        <option>+260 Zambia </option>
+                                        <option>+263 Zimbabwe </option>
+                                    </select>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="submit-field">
+                            <input id="phone" maxlength="15" type="text" name="phone" class="" title="Please Enter Your Mobile/Contact Number Without Country Code i.e 3456789012"  data-tippy-placement="right" placeholder="Number" value=""/>
+                        </div>
+                        <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+
+                    </section>
+                </form>
+                <!-- Button -->
+                <!-- Social Login -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+<!-- Footer
+================================================== -->
+<script>
+    function alert() {
+        Swal.fire({
+            icon: 'error',
+            // title: 'Your Selected Location Not Found',
+            // text: 'Please Select Location Of Your Area/Sector/Town',
+            text: 'Please select or fill all field',
+            // footer: 'Get Help ? <a href="#">&nbsp;&nbsp;Contact Admin</a>'
+        })
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $(".hide-btn").click(function() {
+            $(".box2").hide();
+        });
+    });
+</script>
+
+
+{% if msg %}
+<script>
+	alert()
+</script>
+{% endif %}
+
+{% endblock %}

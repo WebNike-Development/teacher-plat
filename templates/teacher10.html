@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<!-- Page Content
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-5 offset-xl-3">
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h1>Upload ID Proof</h1>
+                </div>
+                <!-- Account Type -->
+                <!-- Form -->
+                <form method="post" id="register-account-form pdtp" action="{{ url_for('teacher_verification_view') }}" enctype="multipart/form-data">
+                    <section class="form-inline sky-form page-search-form margin-bottom-10">
+                        <style>
+                            #countryId {
+                                width: 150px !important;
+                            }
+                        </style>
+                        <div class="submit-field">
+                            <span>
+                                <div class="submit-field" title="Please Upload Proof Document"  data-tippy-placement="right">
+                                    <h5>Please Upload Proof For The Following:</h5>
+                                    <ul>
+<li>You are a citizen of Pakistan OR</li> <li>You are in Pakistan</li>
+
+
+
+                                    </ul>
+                                    <select name="doc_type" class="with-border" data-size="8" title="Select Country Code">
+                                        <option value="" selected hidden disabled>Select Document For Upload</option>
+                                        <option value="Passport (Citizen)">Passport (Citizen) </option>
+                                        <option value="Passport & Visa (Non-Citizen)">Passport & Visa (Non-Citizen) </option>
+                                        <option value="National Identity Card">National Identity Card </option>
+                                        <option value="Others Document">Others Document </option>
+                                        
+                                        
+                                    </select>
+                                </div>
+                            </span>
+                        </div>
+                        <div class="submit-field">
+                        <div class="uploadButton margin-top-0">
+												<input name="ufile" class="uploadButton-input" type="file" accept=".pdf" id="upload"/>
+												<label class="uploadButton-button ripple-effect" for="upload">Upload Files</label>
+												<span class="uploadButton-file-name red ">Only PDF File Will Be Uploaded</span>
+											</div>                        </div>
+                        <!-- <a href="#" onclick="idapprove()" class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Submit For Review  <i class="icon-material-outline-arrow-right-alt"></i></a> -->
+                        <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">submit <i class="icon-material-outline-arrow-right-alt"></i></button>
+                    </section>
+                </form>
+                <!-- Button -->
+                <!-- Social Login -->
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Spacer -->
+<!-- Spacer / End-->
+<!-- Footer
+================================================== -->
+<script>
+    function address() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Your Selected Location Not Found',
+            text: 'Please Select Location Of Your Area/Sector/Town',
+            footer: 'Get Help ? <a href="#">&nbsp;&nbsp;Contact Admin</a>'
+        })
+    }
+</script>
+<script>
+    $(document).ready(function() {
+        $(".hide-btn").click(function() {
+            $(".box2").hide();
+        });
+    });
+</script>
+
+
+
+
+<script>
+    function idapprove() {
+        Swal.fire({
+            title: 'Document Must Be Orignal & Readable',
+            text: "Remebered : Uploaded Document in Only PDF Format and Also Must Be Cleared & Readable And Orignal, OtherWise Admin's Review Will Be Decline Your Registration",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: "Submit",
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Swal.fire(
+                    'Document Uploaded',
+                    'Your ID/Proof Document Has Been Successfully Submitted Please Wait Till Admin Review Your Details & Approved Your Registration',
+                    'success'
+                )
+            }
+        })
+    }
+</script>
+
+{% endblock %}

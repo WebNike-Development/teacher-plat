@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3 style="font-size: 26px;">Let's Create Your Account!</h3>
+					<span>Already Have an Account? <a href="{{ url_for('login_view')}}">Log In!</a></span>
+				</div>
+
+				<!-- Account Type -->
+				<div class="social-login-buttons">
+					<button class="facebook-login ripple-effect"><i class="icon-brand-facebook-f"></i> Register via
+						Facebook</button>
+					<button class="google-login ripple-effect" onclick="window.location.href='/google_login'"><i
+							class="icon-brand-google-plus-g"></i> Register via Google+ </button>
+				</div>
+
+				<!-- Form -->
+				<form method="post" id="register-account-form" action="{{ url_for('register_view') }}">
+
+
+					<div class="social-login-separator"><span>or</span></div>
+					<div class="" title="Please Enter Your Full Name" data-tippy-placement="right">
+
+						<input type="text" class="input-text with-border" name="user_name" id="emailaddress-register"
+							placeholder="Full Name" required />
+					</div>
+
+					<div class=""
+						title="Please Enter Your Valid Email Addresss, After Registration You Can't Registered Your Self Again With This Email"
+						data-tippy-placement="right">
+
+						<input type="email" class="input-text with-border" name="email" id="password-register"
+							placeholder="Email" required />
+					</div>
+
+					<div class=""
+						title="Min Limit 8 & Please Use Special Characters i.e  * , / , @ , # For Strong Password"
+						data-tippy-placement="right">
+
+						<input type="password" class="input-text with-border" name="password"
+							id="password-repeat-register" placeholder="Password" required />
+					</div>
+					<div class="submit-field" title="After Move to Next Step, You Can't Change Your Role So Be Aware  !"
+						data-tippy-placement="right">
+
+						<select id="abbas" name="user_role" class="with-border" data-size="7" title="I am a ?">
+							<option value="Teacher">Teacher</option>
+							<option value="Student">Student/Parent</option>
+						</select>
+					</div>
+					<div class="checkbox" title="This is Mandatory" data-tippy-placement="right">
+						<input type="checkbox" id="two-step">
+						<label for="two-step"><span class="checkbox-icon"></span> This is My First and Only Account on
+							Learning Website</label>
+					</div>
+					<button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Sign
+						Up <i class="icon-material-outline-arrow-right-alt"></i></button>
+				</form>
+
+				<!-- Button -->
+
+				<!-- Social Login -->
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+
+<!-- Footer
+================================================== -->
+
+<script>
+
+
+	function alert() {
+		Swal.fire({
+			icon: 'error',
+			title: 'Email Already Exsist',
+		})
+	}
+
+</script>
+{% if msg %}
+<script>
+	alert()
+</script>
+{% endif %}
+
+
+{% endblock %}
+
+<script>
+	function checkField() {
+		if (document.querySelector('#abbas').value == "") {
+			tchfet('Field Must Be Select');
+		} else if (document.querySelector('#abbas').value == "teacher") {
+			window.location.href = 'select_teacher.php';
+
+		} else if (document.querySelector('#abbas').value == "student") {
+			window.location.href = 'login.php';
+
+		} else {
+			window.location.href = 'register.php';
+		}
+	}
+</script>
+
+<script>
+	function tchfet() {
+		Swal.fire({
+			icon: 'error',
+			title: 'Please Select You Are a Teacher Or Student',
+			text: 'Please Select Your Role in Website',
+			footer: ' Did Not Understand ? <a href="confirmation_email.php">&nbsp;&nbsp;Contact Admin For Help</a>'
+		})
+	}
+</script>

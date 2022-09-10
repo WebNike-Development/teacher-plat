@@ -1,0 +1,28 @@
+{% extends 'Base.html' %}
+
+
+{% block body %}
+<!-- Content
+================================================== -->
+
+<!-- Container -->
+<div class="container">
+	<div class="row">
+		<div class="col-md-12">
+
+			<div class="order-confirmation-page">
+				<div class="breathing-icon"><i class="icon-feather-check"></i></div>
+				<h2 class="margin-top-30">Account Verified !</h2>
+				<p>Horay ! Your Account has Been Successfully Verified.</p>
+				<a href="{{ url_for('login_view') }}" class="button ripple-effect-dark button-sliding-icon margin-top-30">Login <i class="icon-material-outline-arrow-right-alt"></i></a>
+			</div>
+
+		</div>
+	</div>
+</div>
+<!-- Container / End -->
+
+
+<!-- Footer
+================================================== -->
+{% endblock %}

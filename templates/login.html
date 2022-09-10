@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<!-- Page Content
+================================================== -->
+<div class="container">
+	<div class="row">
+		<div class="col-xl-5 offset-xl-3">
+
+			<div class="login-register-page">
+				<!-- Welcome Text -->
+				<div class="welcome-text">
+					<h3 style="font-size: 26px;">Login</h3>
+					<span>Don't Have an Account? <a href="{{ url_for('register_view') }}">Sign Up</a> </span> 
+				</div>
+
+				<!-- Account Type -->
+				
+					
+				<!-- Form -->
+				<form method="post" id="register-account-form" action="{{ url_for('login_view') }}">
+				
+					
+					
+					<div class="" title="Enter Your Registered Email" data-tippy-placement="right">
+					
+						<input type="email" class="input-text with-border" name="email" id="password-register" placeholder="Email" required/>
+					</div>
+
+					<div class="" title="Enter Your Registered Password" data-tippy-placement="right">
+						
+						<input type="password" class="input-text with-border" name="password" id="password-repeat-register" placeholder="Password" required/>
+					</div>
+
+					<span>Forgot Your Password &nbsp; <a href="{{ url_for('confirmation_email_view') }}">Reset Your Password</a> </span> 
+
+				  <a onclick="alert()">Test</a>
+						<button  class="button full-width button-sliding-icon ripple-effect margin-top-10"	 type="submit" >Login	 <i class="icon-material-outline-arrow-right-alt"></i></button>
+					</form>
+				
+				<!-- Button -->
+				
+				<!-- Social Login -->
+				
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+
+
+function alert() {
+	Swal.fire({
+  icon: 'error',
+  title: 'Wrong Login Credentials...',
+  text: 'Please Use Valid Email Or Passsword For Login !',
+  footer: " Forgot Password ? <a href='{{ url_for('confirmation_email_view')}}'>&nbsp;&nbsp;Reset Password</a>"
+})
+}
+
+</script>
+{% if msg %}
+<script>
+	alert()
+</script>
+{% endif %}
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+<!-- Footer
+================================================== -->
+
+{% endblock %}

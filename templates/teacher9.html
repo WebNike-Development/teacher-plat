@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<style>
+    #progress {
+        position: fixed;
+        top: 0;
+        left: 0;
+        content: "";
+        background: red;
+        height: 5px;
+
+    }
+</style>
+<!-- Page Content
+================================================== -->
+<div class="container">
+    <div class="row">
+        <div class="col-xl-6 offset-xl-3">
+
+            <div class="login-register-page">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <div style="text-align: left;">
+                        <h3 style="font-size: 32px; text-align: left;">Profile description</h3>
+                        <br>
+                        <span class="red" style="padding-bottom:5px;">This is the Most Important Section For You </span>
+                        <b>80% of students will decide if they want to hire you just based on what you write here.</b>
+                        <p class="joddet" style="padding-top:5px ;">Make sure it's good, relevant, in detail, and without mistakes.
+                            Do not copy-paste your resume here.</p>
+                        <b class="red">Don't Share Any Contact Details</b>
+
+
+                    </div>
+                </div>
+
+                <!-- Account Type -->
+
+
+                <!-- Form -->
+                <form method="post" id="register-account-form" action="{{ url_for('teacher_description_view') }}">
+
+
+
+
+                    <div class="submit-field" title="Share Your Teaching Style, Methodology, Results and Whats Make You Unique And Great Teacher!" data-tippy-placement="right">
+
+                        <textarea name="text" onkeydown="count_text()" id="text1" cols="30" rows="10"></textarea>
+
+
+                    </div>
+
+                    <div class="box22" style="width:100%;">
+                    <div class="box44" style="height: 40px;">
+
+                    </div>
+                </div>
+                <br>
+                    <div class="checkbox" title="This is Mandatory" data-tippy-placement="right">
+                        <input type="checkbox" id="two-step">
+                        <label for="two-step"><span class="checkbox-icon"></span> I Have Not Shared Any Contact Details (Email, Phone, Skype, Website etc) </label>
+                    </div>
+
+                    <button class="button full-width button-sliding-icon ripple-effect margin-top-10" type="submit">Submit<i class="icon-material-outline-arrow-right-alt"></i></button>
+                </form>
+
+
+           
+
+                <!-- Button -->
+
+                <!-- Social Login -->
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    function alert() {
+        Swal.fire({
+            icon: 'error',
+            title: 'Wrong Login Credentials...',
+            text: 'Please Use Valid Email Or Passsword For Login !',
+            footer: ' Forgot Password ? <a href="confirmation_email.php">&nbsp;&nbsp;Reset Password</a>'
+        })
+    }
+</script>
+
+
+<!-- Spacer -->
+<div class="margin-top-70"></div>
+<!-- Spacer / End-->
+<!-- Footer
+================================================== -->
+
+
+<script>
+    function count_text() {
+        let text_area = document.querySelector("#text1")
+        let box1 = document.querySelector('.box44');
+        let normal_words = 1127;
+        let alp = text_area.value.length;
+        let percentage = (alp / normal_words) * 100;
+        if (percentage < 40) {
+            box1.style.width = percentage + "%";
+            box1.style.background = "red";
+            box1.innerHTML = "<span class='blf'>Weak Description</span>";
+
+        }else if(percentage>100){
+            box1.style.width = 100 + "%";
+            box1.style.background = "green";
+            box1.innerHTML = "<span class='blf'>Strong Description</span>";
+        } 
+        else {
+            box1.style.width = percentage + "%";
+            box1.style.background = "green";
+            box1.innerHTML = "<span class='blf'>Strong Description</span>";
+        }
+       
+    }
+</script>
+
+{% endblock %}
