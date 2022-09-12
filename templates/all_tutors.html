@@ -1,0 +1,308 @@
+{% extends 'base.html' %}
+
+{% block body %}
+	<!-- Page Content
+	================================================== -->
+
+	<div class="full-page-container">
+		
+		<div class="full-page-sidebar">
+			<div class="full-page-sidebar-inner" data-simplebar>
+				<form method="POST" action="{{url_for('filter_by_loc_view')}}" >
+				<div class="sidebar-container">
+					<!-- Location -->
+
+					<div class="sidebar-widget">
+						<h3>From Level</h3>
+						<select name="low-level" class="default" title="Filter Your Search">
+							<option selected hidden disabled>Select</option>
+							<option hidden disabled value=""> -- Select level --</option>
+							<optgroup data-group-name="1" label="-- Skill Level --">
+								<option data-group-name="1" value="Beginner">Beginner</option>
+								<option data-group-name="1" value="Intermediate">Intermediate</option>
+								<option data-group-name="1" value="Expert">Expert</option>
+							</optgroup>
+							<optgroup data-group-name="2" label="-- Grades --">
+								<option data-group-name="2" value="Preschool, Kindergarten, KG, Nursery">Preschool, Kindergarten, KG, Nursery</option>
+								<option data-group-name="2" value="Grade 1">Grade 1</option>
+								<option data-group-name="2" value="Grade 2">Grade 2</option>
+								<option data-group-name="2" value="Grade 3">Grade 3</option>
+								<option data-group-name="2" value="Grade 4">Grade 4</option>
+								<option data-group-name="2" value="Grade 5">Grade 5</option>
+								<option data-group-name="2" value="Grade 6">Grade 6</option>
+								<option data-group-name="2" value="Grade 7">Grade 7</option>
+								<option data-group-name="2" value="Grade 8">Grade 8</option>
+								<option data-group-name="2" value="Grade 9">Grade 9</option>
+								<option data-group-name="2" value="Grade 10">Grade 10</option>
+								<option data-group-name="2" value="IGCSE">IGCSE</option>
+								<option data-group-name="2" value="GCSE">GCSE</option>
+								<option data-group-name="2" value="O level">O level</option>
+								<option data-group-name="2" value="Grade 11">Grade 11</option>
+								<option data-group-name="2" value="AS level">AS level</option>
+								<option data-group-name="2" value="A2 level">A2 level</option>
+								<option data-group-name="2" value="A level">A level</option>
+								<option data-group-name="2" value="Grade 12">Grade 12</option>
+								<option data-group-name="2" value="Diploma">Diploma</option>
+								<option data-group-name="2" value="Bachelors/Undergraduate">Bachelors/Undergraduate</option>
+								<option data-group-name="2" value="Masters/Postgraduate">Masters/Postgraduate</option>
+								<option data-group-name="2" value="MPhil">MPhil</option>
+								<option data-group-name="2" value="Doctorate/PhD">Doctorate/PhD</option>
+							</optgroup>
+							<optgroup data-group-name="3" label="-- Others --">
+								<option data-group-name="3" value="Adult/Casual learning">Adult/Casual learning</option>
+							</optgroup>
+						</select>
+
+					</div>
+
+					<div class="sidebar-widget">
+						<h3>To Level</h3>
+						<select name="high-level" class="default" title="Filter Your Search">
+							<option selected hidden disabled>Select</option>
+							<option hidden disabled value=""> -- Select level --</option>
+							<optgroup data-group-name="1" label="-- Skill Level --">
+								<option data-group-name="1" value="Beginner">Beginner</option>
+								<option data-group-name="1" value="Intermediate">Intermediate</option>
+								<option data-group-name="1" value="Expert">Expert</option>
+							</optgroup>
+							<optgroup data-group-name="2" label="-- Grades --">
+								<option data-group-name="2" value="Preschool, Kindergarten, KG, Nursery">Preschool, Kindergarten, KG, Nursery</option>
+								<option data-group-name="2" value="Grade 1">Grade 1</option>
+								<option data-group-name="2" value="Grade 2">Grade 2</option>
+								<option data-group-name="2" value="Grade 3">Grade 3</option>
+								<option data-group-name="2" value="Grade 4">Grade 4</option>
+								<option data-group-name="2" value="Grade 5">Grade 5</option>
+								<option data-group-name="2" value="Grade 6">Grade 6</option>
+								<option data-group-name="2" value="Grade 7">Grade 7</option>
+								<option data-group-name="2" value="Grade 8">Grade 8</option>
+								<option data-group-name="2" value="Grade 9">Grade 9</option>
+								<option data-group-name="2" value="Grade 10">Grade 10</option>
+								<option data-group-name="2" value="IGCSE">IGCSE</option>
+								<option data-group-name="2" value="GCSE">GCSE</option>
+								<option data-group-name="2" value="O level">O level</option>
+								<option data-group-name="2" value="Grade 11">Grade 11</option>
+								<option data-group-name="2" value="AS level">AS level</option>
+								<option data-group-name="2" value="A2 level">A2 level</option>
+								<option data-group-name="2" value="A level">A level</option>
+								<option data-group-name="2" value="Grade 12">Grade 12</option>
+								<option data-group-name="2" value="Diploma">Diploma</option>
+								<option data-group-name="2" value="Bachelors/Undergraduate">Bachelors/Undergraduate</option>
+								<option data-group-name="2" value="Masters/Postgraduate">Masters/Postgraduate</option>
+								<option data-group-name="2" value="MPhil">MPhil</option>
+								<option data-group-name="2" value="Doctorate/PhD">Doctorate/PhD</option>
+							</optgroup>
+							<optgroup data-group-name="3" label="-- Others --">
+								<option data-group-name="3" value="Adult/Casual learning">Adult/Casual learning</option>
+							</optgroup>
+						</select>
+
+					</div>
+
+					<div class="sidebar-widget">
+						<h3>Search By Country Wise</h3>
+						<select name="location" id="lowestLevelIdByUser" tabindex="2" onchange="fetchHighLevel(this.value);" class="valid">
+							<option selected hidden disabled>Select</option>
+							<option value="Pakistan">Pakistan</option>
+							<option value="India">India</option>
+							<option value="karachi">karachi</option>
+							<option value="Afghanistan">Afghanistan</option>
+							<option value="Srilanka">Srilanka </option>
+							<option value="Germany">Germany </option>
+							<option value="Hongkong">Hongkong </option>
+							<option value="Bangladesh">Bangladesh</option>
+							<option value="Antartica">Antartica </option>
+							<option value="Africa">Africa </option>
+							<option value="North & South America">North & South America</option>
+							<option value="Europe">Europe </option>
+							<option value="Australia">Australia</option>
+							<option value="Janpan">Janpan</option>
+							<option value="China">China</option>
+
+
+						</select>
+					</div>
+
+					<!-- Category -->
+
+					<!-- Keywords -->
+					<div class="sidebar-widget">
+						<h3>Subject</h3>
+						<div class="keywords-container">
+							<div class="keyword-input-container">
+								<input name="subject" value=""  type="text" class="keyword-input" placeholder="e.g. Computer Science" />
+								<a class="keyword-input-button ripple-effect prevent"><i class="icon-material-outline-add"></i></a>
+							</div>
+							<div class="keywords-list">
+								<!-- keywords go here -->
+							</div>
+							<div class="clearfix"></div>
+						</div>
+					</div>
+
+					<!-- Hourly Rate -->
+					<div class="sidebar-widget">
+						<h3>Hourly Rate</h3>
+						<div class="margin-top-55"></div>
+
+						<!-- Range Slider -->
+						<input class="range-slider" type="text" value="" data-slider-currency="$" data-slider-min="1" data-slider-max="250" data-slider-step="1" data-slider-value="[1,250]" />
+					</div>
+
+					<!-- Tags -->
+					<div class="sidebar-widget">
+						<h3>Skills</h3>
+
+						<div class="tags-container">
+							<div class="tag">
+								<input type="checkbox" id="tag1" />
+								<label for="tag1">front-end dev</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag2" />
+								<label for="tag2">angular</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag3" />
+								<label for="tag3">react</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag4" />
+								<label for="tag4">vue js</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag5" />
+								<label for="tag5">web apps</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag6" />
+								<label for="tag6">design</label>
+							</div>
+							<div class="tag">
+								<input type="checkbox" id="tag7" />
+								<label for="tag7">wordpress</label>
+							</div>
+						</div>
+						<div class="clearfix"></div>
+
+						<!-- More Skills -->
+
+					</div>
+					<div class="clearfix"></div>
+
+					<div class="margin-bottom-40"></div>
+					
+					</div>
+					<!-- Sidebar Container / End -->
+
+					<!-- Search Button -->
+					<div class="sidebar-search-button-container">
+						<button type="submit" class="button ripple-effect">Search</button>
+					</div>
+					<!-- Search Button / End-->
+				</div>
+			</form>
+		</div>
+		<!-- Full Page Sidebar / End -->
+
+		<!-- Full Page Content -->
+		<div class="full-page-content-container" data-simplebar>
+			<div class="full-page-content-inner">
+
+				<h3 class="page-title">All Tutors</h3>
+				<div class="dashboard-headline">
+
+					<!-- Breadcrumbs -->
+
+				</div>
+				<div class="notify-box margin-top-15">
+					<div class="switch-container">
+						<label class="switch"><input type="checkbox"><span class="switch-button"></span><span class="switch-text">Turn on email alerts for this search</span></label>
+					</div>
+
+					<nav id="breadcrumbs" class="light">
+						<ul>
+							<li><a href="all_tutors.php">All Tutors </a></li>
+							<li><a href="online_teacher.php">Online Tutors </a></li>
+							<li><a href="home_teacher.php">Home Tutors </a></li>
+							<li><a href="assignment_help.php">Assignment</a></li>
+
+						</ul>
+					</nav>
+				</div>
+
+				<!-- Freelancers List Container -->
+				<div class="freelancers-container freelancers-grid-layout margin-top-35">
+
+					<!--Freelancer -->
+					{% for item in items %}
+					<div class="freelancer">
+
+						<!-- Overview -->
+						<div class="freelancer-overview">
+							<div class="freelancer-overview-inner">
+
+								<!-- Bookmark Icon -->
+								<span class="bookmark-icon"></span>
+
+								<!-- Avatar -->
+								<div class="freelancer-avatar">
+									<div class="verified-badge"></div>
+									<a href="student_tutor.php"><img src="{{url_for('static',filename='images/teacher_image/jennifer.jpg')}}" alt=""></a>
+								</div>
+
+								<!-- Name -->
+								<div class="freelancer-name">
+									<h4><a href="student_tutor.php">{{item.user_name}} <img class="flag" src="{{url_for('static',filename='images/flags/gb.svg')}}" alt="" title="United Kingdom" data-tippy-placement="top"></a></h4>
+									<span>{{ item.job_title }}</span>
+								</div>
+								<div class="freelancer-rating">
+									<div class="star-rating" data-rating="4.9"></div>
+								</div>
+								<div class="freelancer-name">
+									<h5>{{ item.profile_description }}
+									</h5>
+
+								</div>
+
+								<!-- Rating -->
+
+							</div>
+						</div>
+
+						<!-- Details -->
+						<div class="freelancer-details">
+							<div class="freelancer-details-list">
+								<ul>
+									<li>Location <strong><i class="icon-material-outline-location-on"></i> {{ item.location }}</strong></li>
+									<li>Rate <strong>{{ item.maximum_fee }} / {{item.teach_i_charge}}</strong></li>
+									<li>Experience <strong>{{item.year_exper}} Years</strong></li>
+								</ul>
+							</div>
+							<a href="student_tutor.php" class="button button-sliding-icon ripple-effect">View Profile <i class="icon-material-outline-arrow-right-alt"></i></a>
+						</div>
+
+					</div>
+					{% endfor %}
+
+				</div>
+				<!-- Freelancers Container / End -->
+
+				<!-- Pagination -->
+				<div class="clearfix"></div>
+				<div class="pagination-container margin-top-20 margin-bottom-20">
+					<nav class="pagination">
+						<ul>
+							<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
+							<li><a href="#" class="ripple-effect">1</a></li>
+							<li><a href="#" class="ripple-effect current-page">2</a></li>
+							<li><a href="#" class="ripple-effect">3</a></li>
+							<li><a href="#" class="ripple-effect">4</a></li>
+							<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="clearfix"></div>
+				<!-- Pagination / End -->
+
+				<!-- Footer -->
+{% endblock %}

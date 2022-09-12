@@ -46,9 +46,9 @@ google = oauth.register(
 # app.config['MYSQL_DB'] = os.getenv('DATABASE')
 # app.config['MYSQL_CURSORCLASS'] = os.getenv('DB_TYPE')
 # app.config['SECRET_KEY'] = os.getenv('SECRET_KEY')
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51LckOJIO68NMTnSru0MfSzVDjEZWx2cBnAnLUcvEnACTjDSFflFMCuTO1vCZ6ElbCHtRU8bluS5hBiT8TlsXl9fe003rqJiCGO'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51LckOJIO68NMTnSrP1MTqrvSd8EmZm55rhYuzWkgSZGqkIzPAvfVbbTIwAFmNWMtrct1AWfojqSNeYtNZSGbpXQE00goa5JGH3'
-stripe.api_key = 'sk_test_51LckOJIO68NMTnSrP1MTqrvSd8EmZm55rhYuzWkgSZGqkIzPAvfVbbTIwAFmNWMtrct1AWfojqSNeYtNZSGbpXQE00goa5JGH3'
+app.config['STRIPE_PUBLIC_KEY'] = ''
+app.config['STRIPE_SECRET_KEY'] = ''
+stripe.api_key = ''
 
 
 # =================================== Landing Page =====================================
@@ -521,7 +521,6 @@ def teacher_teaching_details_view():
 def teacher_description_view():
 	if request.method == 'POST':
 		desc = request.form['text']
-
 		teacher_description_mode(desc, session["id"])
 		return redirect(url_for('teacher_verification_view'))
 	else:
@@ -689,9 +688,22 @@ def student_last_review_view():
 	lang_data = tuple(b)
 
 	row2 = student_last1_mode(lang_data)
-	time = str(datetime.datetime.now() - row[0]['date_time'])[0][0]
-	print(time)
+	time = str(datetime.datetime.now() - row[0]['date_time'])[0:10]
 	return render_template('student7.html', mydata=row , time=time, lang_data=row2)
+
+
+#================================== student landing page ==============================
+@app.route('/student_tutor', methods=['GET','POST'])
+def student_tutor_view():
+	
+	items = student_tutor_mode()
+	return render_template('all_tutors.html', items = items)
+
+
+@app.route('/filter_by_loc', methods=['POST', 'GET'])
+def filter_by_loc_view():
+	items = filter_by_loc_mode()	
+	return render_template('all_tutors.html', items = items) 
 
 
 

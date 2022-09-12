@@ -84,3 +84,25 @@ def student_last1_mode(lang_data):
     cursor.execute(my_query1, (lang_data,))
     row2 = cursor.fetchall()
     return row2
+
+
+def student_tutor_mode():
+    cursor = mysql.connection.cursor()
+    my_query = """SELECT user_name, profile_description, year_exper, maximum_fee, 
+    job_title, teach_i_charge,location FROM login INNER JOIN teaching_details ON login.id_pk = teaching_details.user_id_fk INNER JOIN user_experience_info ON user_experience_info.user_id_fk = login.id_pk INNER JOIN personal_info ON personal_info.user_id_fk= login.id_pk"""
+    cursor.execute(my_query)
+    row = cursor.fetchall()
+    return row
+
+
+def filter_by_loc_mode():
+    cursor = mysql.connection.cursor()
+    my_query = f"""SELECT user_name, teach_i_charge, profile_description, 
+    year_exper, maximum_fee, job_title, location 
+    FROM login INNER JOIN teaching_details ON login.id_pk = teaching_details.user_id_fk 
+    INNER JOIN user_experience_info ON user_experience_info.user_id_fk = login.id_pk 
+    INNER JOIN personal_info ON personal_info.user_id_fk= login.id_pk"""
+    cursor.execute(my_query)
+    row = cursor.fetchall()
+    print(row)
+    return(row)

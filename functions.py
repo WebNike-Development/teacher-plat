@@ -21,15 +21,15 @@ def mail_sender(email, random_str, route):
 
 
 def sms_sender(otp):
-    account_sid = 'ACfcff1a3ae1ff2082b05cf8f27b51d59a'
-    auth_token = 'dca548abfb1cfdc2c20e7692e3a0a3b5'
+    account_sid = ''
+    auth_token = ''
     client = Client(account_sid, auth_token)
 
     message = client.messages \
     .create(
          body=f'Your OTP code is : {otp}',
-         from_='+17578565545',
-         to='+923142388477'
+         from_='',
+         to=''
         )
 
 

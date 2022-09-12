@@ -124,6 +124,7 @@ def teacher_description_mode(desc, id):
     my_query = """UPDATE teaching_details SET profile_description=%s WHERE user_id_fk=%s"""
     data = (desc, id,)
     cursor.execute(my_query, data)
+    mysql.connection.commit()
 
 def teacher_verification_mode(id, filename, doc_type):
     cursor = mysql.connection.cursor()
